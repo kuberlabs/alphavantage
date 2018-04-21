@@ -2,14 +2,16 @@
   "name": "alphavantage-kuber",
   "version": "1.3.0",
   "description": "A simple interface to the Alpha Vantage API.",
-  "main": "index.js",
+  "main": "distribution/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "jest",
     "lint": "prettier --print-width 120 --single-quote --write \"./**/**.js\"",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "build": "babel source --presets babel-preset-es2015 --out-dir distribution",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "alpha vantage",
@@ -35,6 +37,8 @@
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "coveralls": "^3.0.0",
     "delay": "^2.0.0",
     "jest": "^22.0.4",

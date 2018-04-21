@@ -1,13 +1,10 @@
 'use strict';
 
-require('dotenv').config();
-const apiKey = 'AV_KEY';
-
 /**
  * The Alpha Vantage core module.
  */
 module.exports = config => {
-  config = Object.assign({}, { key: process.env[apiKey] }, config);
+  config = Object.assign({}, config);
 
   // Check for config errors.
   let errors = [];
